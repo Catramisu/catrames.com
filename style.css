@@ -1,0 +1,67 @@
+ :root {
+  color-scheme: dark;
+  --bg: #090a0b;
+  --panel: #101112;
+  --text: #e9e8e2;
+  --muted: #8d8e89;
+  --line: #292a28;
+  --accent: #c6c8b9;
+  --mono: "DM Mono", monospace;
+  --sans: "Manrope", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.top, footer { min-height: 68px; padding: 0 clamp(22px, 6vw, 84px); display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.top { border-bottom: 1px solid var(--line); }
+.brand { font-weight: 700; font-size: 16px; letter-spacing: -.06em; }
+.brand span { font: 9px var(--mono); color: var(--muted); vertical-align: top; margin-left: 3px; letter-spacing: 0; }
+.top-note, .small-label, .footnote, .record-head, .record-meta, .bottom-note a, footer > span, .correction button {
+  font: 9px var(--mono); letter-spacing: .075em;
+}
+.top-note { color: var(--muted); }
+main { width: min(100% - 44px, 760px); margin: 0 auto; }
+.opening { padding: clamp(72px, 12vh, 130px) 0 54px; }
+.small-label { color: var(--muted); display: flex; align-items: center; gap: 9px; }
+.status-dot { width: 5px; height: 5px; background: #a9b19b; border-radius: 50%; display: inline-block; }
+.separator { color: #4d4e49; }
+h1 { font-size: clamp(68px, 12vw, 118px); font-weight: 500; letter-spacing: -.095em; line-height: .87; margin: 34px 0 34px -6px; }
+.copy { width: min(100%, 470px); margin-left: clamp(0px, 10vw, 118px); }
+.copy p { font-size: 15px; line-height: 1.85; color: #b5b6b0; margin: 0 0 15px; }
+.copy .last-line { color: var(--text); margin-top: 26px; }
+.footnote { color: #686a65; margin-top: 76px; border-top: 1px solid var(--line); padding-top: 17px; }
+.record { margin: 20px 0 0 clamp(0px, 10vw, 118px); border: 1px solid var(--line); background: linear-gradient(120deg, #101112, #0c0d0e); }
+.record-head { padding: 13px 16px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; color: #777973; font-size: 8px; }
+.record-body { padding: 24px 24px 20px; position: relative; }
+.quote-mark { color: #55574f; font-size: 35px; line-height: .8; }
+blockquote { margin: 9px 0 26px; max-width: 510px; font-size: clamp(18px, 3vw, 23px); line-height: 1.55; letter-spacing: -.035em; color: #d5d5ce; }
+.record-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: #777973; font-size: 8px; }
+.redacted { color: #aaa99f; }
+.bottom-note { margin: 36px 0 80px clamp(0px, 10vw, 118px); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.bottom-note p { color: var(--muted); font-size: 11px; line-height: 1.6; max-width: 290px; margin: 0; }
+.bottom-note a { color: var(--text); white-space: nowrap; border-bottom: 1px solid #65665f; padding-bottom: 7px; transition: color .2s, border-color .2s; }
+.bottom-note a:hover { color: #aab39c; border-color: #aab39c; }
+.bottom-note a span { margin-left: 8px; }
+.correction { margin: -52px 0 80px clamp(0px, 10vw, 118px); border-left: 1px solid #8d927f; padding: 5px 0 5px 18px; }
+.correction p { color: #c7c8c0; font-size: 14px; }
+.correction button { color: var(--muted); background: transparent; border: 0; padding: 0; cursor: pointer; }
+.correction button span { font-size: 15px; margin-left: 7px; }
+[hidden] { display: none !important; }
+footer { min-height: 75px; border-top: 1px solid var(--line); color: #777973; }
+footer .brand { color: var(--text); }
+footer > span { font-size: 8px; }
+@media (max-width: 560px) {
+  .top, footer { padding-left: 22px; padding-right: 22px; }
+  .top-note { max-width: 130px; text-align: right; line-height: 1.7; font-size: 8px; }
+  main { width: calc(100% - 44px); }
+  .opening { padding-top: 78px; }
+  h1 { font-size: clamp(65px, 17vw, 88px); }
+  .copy, .record, .bottom-note, .correction { margin-left: 0; }
+  .footnote { margin-top: 54px; line-height: 1.8; }
+  .record-body { padding: 20px 17px; }
+  .bottom-note { align-items: flex-start; flex-direction: column; margin-bottom: 65px; }
+  footer { flex-wrap: wrap; padding-top: 20px; padding-bottom: 20px; }
+  footer > span:nth-child(2) { order: 3; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
